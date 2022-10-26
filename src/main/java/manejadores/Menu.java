@@ -77,9 +77,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("Aqui va la opcion para ver las pistas");
-                    Pista i=new Pista(TipoPistas.ARENA);
-                    System.out.println(TipoPistas.ARENA.getColor()+ i.getCaracter()); 
+                    ManejadorPista.menuPistas();
                     break;
 
                 case 5:
