@@ -2,15 +2,17 @@ package objetos;
 
 public class Jugador {
     private String nombre;
-    private String nickName;
+    private  String nickName;
     private int edad;
     private Vehiculo vehiculo;
     private int nVehiculos;
     private int gemas; 
     private int monedasOro;
     
-    private int gemasGastado;
-    private int monedasOroGastado;
+    private  int gemasGastado=0;
+    private int gemasObtenidos=0;
+    private int monedasOroGastado=0;
+    private int monedasOroObtenidos=0;
     
     
     public Jugador(String nombre, String nickName, int edad){
@@ -25,35 +27,18 @@ public class Jugador {
     public int getMonedasOro() {
         return monedasOro;
     }
-    public void setMonedasOro(int monedasOro) {
-        this.monedasOro = monedasOro;
-    }
-    public int getGemas() {
+   
+    public  int getGemas() {
         return gemas;
-    }
-
-    public void setGemas(int gemas) {
-        this.gemas = gemas;
-    }
-    
-    public void setNombre(String nombre){
-        this.nombre=nombre;
     }
     
     public String getNombre(){
         return this.nombre;
     }
 
-    public void setNickName(String nickName){
-        this.nickName=nickName;
-    }
 
     public String getNickName(){
-        return this.nickName;
-    }
-
-    public void setEdad(int edad){
-        this.edad=edad;
+        return nickName;
     }
 
     public int getEdad(){
@@ -67,6 +52,39 @@ public class Jugador {
 
     public Vehiculo getVehiculo(){
         return this.vehiculo;
+    }
+    public int getGemasGastado(){
+        return this.gemasGastado;
+    }
+    public int getGemasObtenidos(){
+        return this.gemasObtenidos;
+    }
+
+    public int getMonedasOroGastado(){
+        return this.monedasOroGastado;
+    }
+    public int getMonedasOroObtenidos(){
+        return this.monedasOroObtenidos;
+    }
+
+    public  void restarGemas(int restarGemas){
+        gemas-=restarGemas;
+        gemasGastado+=restarGemas;
+    }
+
+    public void sumarGemas(int sumarGemas){
+        this.gemas+=sumarGemas;
+        this.gemasObtenidos+=sumarGemas;
+    }
+
+    public void restarMonedasOro(int restarMonedasOro){
+        this.monedasOro-=restarMonedasOro;
+        this.monedasOroGastado+=restarMonedasOro;
+    }
+
+    public void sumarMonedasOro(int sumarMonedasOro){
+        this.monedasOro+=sumarMonedasOro;
+        this.monedasOroObtenidos+=sumarMonedasOro;
     }
     
 }

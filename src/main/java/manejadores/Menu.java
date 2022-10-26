@@ -2,10 +2,12 @@ package manejadores;
 
 import java.util.Scanner;
 
+import enums.TipoPistas;
 import objetos.Jugador;
+import objetos.Pista;
 
 public class Menu {
-    private static Jugador jugador;
+     static Jugador jugador;
 
     static Scanner ent = new Scanner(System.in);
     public Menu(){
@@ -36,11 +38,18 @@ public class Menu {
 
         menuJuego();
     }
+    public static void mostrarDatos(){
+        String nickName =jugador.getNickName();
+        int monedas=jugador.getMonedasOro();
+        int gemas=jugador.getGemas();
+        System.out.print("Nickname: \u001B[35m"+nickName);
+        System.out.print(" \u001B[37m Monedas de oro: \u001B[33m"+monedas);
+        System.out.println(" \u001B[37m Gemas: \u001B[36m"+gemas);
+    }
 
     public static void menuJuego(){
-        System.out.print("Nickname: \u001B[35m"+jugador.getNickName());
-        System.out.print(" \u001B[37m Monedas de oro: \u001B[33m"+jugador.getMonedasOro());
-        System.out.println(" \u001B[37m Gemas: \u001B[36m"+jugador.getGemas());
+        System.out.println("");
+        mostrarDatos();
         int opcion,salir=0;
         do {
             
@@ -60,7 +69,7 @@ public class Menu {
                     break;
                 
                 case 2:
-                    System.out.println("Aqui va todo lo de la ruleta ");
+                ManejadorRuleta.menuRuleta();
                     break;
 
                 case 3:
@@ -69,6 +78,8 @@ public class Menu {
 
                 case 4:
                     System.out.println("Aqui va la opcion para ver las pistas");
+                    Pista i=new Pista(TipoPistas.ARENA);
+                    System.out.println(TipoPistas.ARENA.getColor()+ i.getCaracter()); 
                     break;
 
                 case 5:
@@ -81,8 +92,8 @@ public class Menu {
                 default:
                     break;
             }
-
+            System.out.println("\nGracias por preferirnos :)");
         } while (salir!=1);
-        }
-        
     }
+        
+}
