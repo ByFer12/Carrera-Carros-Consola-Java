@@ -14,7 +14,7 @@ public class ManejadorPista {
         int opcion,desicion=0;
         do {
             
-            System.out.println("\u001B[37m 1--------Ver Gasolina necesaria para cada pista");
+            System.out.println("\u001B[37m1--------Ver Gasolina necesaria para cada pista");
             System.out.println("2--------Ver Pistas");
             System.out.println("3--------Regresar");
             opcion=ent.nextInt();

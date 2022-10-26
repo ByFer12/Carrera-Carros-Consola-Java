@@ -69,6 +69,11 @@ public class ManejadorRuleta {
             }else{
                 condicion=1;
             }
+            if(Menu.jugador.getGemas()<=0){
+                System.out.println("Se ha terminado Sus gemas");
+                condicion=1;
+        
+            }
             
             rondas++;
         } while (condicion!=1);
