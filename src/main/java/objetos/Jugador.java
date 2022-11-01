@@ -4,8 +4,9 @@ public class Jugador {
     private String nombre;
     private  String nickName;
     private int edad;
-    private Vehiculo vehiculo;
-    private int nVehiculos;
+    private Vehiculo[] vehiculos;
+
+    private final int MAX_VEHICULOS=6;
     private int gemas; 
     private int monedasOro;
     
@@ -13,7 +14,7 @@ public class Jugador {
     private int gemasObtenidos=0;
     private int monedasOroGastado=0;
     private int monedasOroObtenidos=0;
-    
+    private int contador;    
     
     public Jugador(String nombre, String nickName, int edad){
         this.nombre=nombre;
@@ -21,9 +22,39 @@ public class Jugador {
         this.edad=edad;
         this.gemas=30;
         this.monedasOro=50;
+        this.vehiculos=new Vehiculo[MAX_VEHICULOS];
         
         
     }
+
+    public void agregarVehiculo(Vehiculo vehiculo){
+        
+        if(this.contador<MAX_VEHICULOS){
+
+            this.vehiculos[contador++]=vehiculo;
+        }else{
+            System.out.println("Ya no puedes obtener mas vehiculos");
+        }
+
+    }
+
+    public void mostrarVehiculos(){
+        System.out.println("\t***************************");
+        System.out.println("\t  VEHICULOS DISCPONIBLES");
+        System.out.println("\t***************************");
+
+        for (int i = 0; i < this.contador; i++) {
+            if(vehiculos[i].getEtiqueta()!=null && vehiculos[i].getMotor()!=null && vehiculos[i].getTanqueGasolina()!=0){
+
+                System.out.println("\tVehiculo: "+vehiculos[i].getEtiqueta()+"\n");
+                System.out.println("Nombre: "+vehiculos[i].getNombre());
+                System.out.println("Potencia: "+vehiculos[i].getMotor());
+                System.out.println("Gasolina: "+vehiculos[i].getTanqueGasolina()+"\n");
+                System.out.println("");
+            }
+        }
+    }
+
     public int getMonedasOro() {
         return monedasOro;
     }
@@ -45,14 +76,6 @@ public class Jugador {
         return this.edad;
     }
 
-    public void setVehiculo(Vehiculo vehiculo){
-        this.nVehiculos++;
-        this.vehiculo=vehiculo;
-    }
-
-    public Vehiculo getVehiculo(){
-        return this.vehiculo;
-    }
     public int getGemasGastado(){
         return this.gemasGastado;
     }

@@ -42,16 +42,18 @@ public class Menu {
         String nickName =jugador.getNickName();
         int monedas=jugador.getMonedasOro();
         int gemas=jugador.getGemas();
-        System.out.print("Nickname: \u001B[35m"+nickName);
+        System.out.println("***********************************************************");
+        System.out.print("\tNickname: \u001B[35m"+nickName);
         System.out.print(" \u001B[37m Monedas de oro: \u001B[33m"+monedas);
         System.out.println(" \u001B[37m Gemas: \u001B[36m"+gemas);
+        System.out.println("\033[1;37m***********************************************************");
     }
 
     public static void menuJuego(){
         System.out.println("");
-        mostrarDatos();
         int opcion,salir=0;
         do {
+            mostrarDatos();
             
             do{
                 System.out.println("\u001B[37m1)-------Competir");
@@ -90,8 +92,9 @@ public class Menu {
                 default:
                     break;
             }
-            System.out.println("\nGracias por preferirnos :)");
+            System.out.println("\n");
         } while (salir!=1);
+        System.out.println("\nGracias por preferirnos :)\n");
     }
         
 }

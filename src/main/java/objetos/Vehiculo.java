@@ -3,6 +3,7 @@ package objetos;
 import enums.ColorVehiculo;
 import enums.TipoLlanta;
 import enums.TipoMotor;
+import manejadores.Menu;
 
 public class Vehiculo {
     private String nombre;
@@ -13,15 +14,14 @@ public class Vehiculo {
     private String etiqueta;
     private int gasolinaConsumida;
     
-    public Vehiculo(){
-        
-    }
+   
     
-    public Vehiculo(String nombre, TipoMotor motor, TipoLlanta llanta, int tanqueGasolina) {
+    public Vehiculo(String nombre, TipoMotor motor, TipoLlanta llanta, int tanqueGasolina, String etiqueta) {
         this.nombre = nombre;
         this.motor = motor;
         this.llanta = llanta;
         this.tanqueGasolina = tanqueGasolina;
+        this.etiqueta=etiqueta;
 
     }
 
@@ -57,15 +57,15 @@ public class Vehiculo {
         this.tanqueGasolina = tanqueGasolina;
     }
 
-    public String getEtiqueta() {
-        return etiqueta;
-    }
     public ColorVehiculo getColor(){
         return this.color;
     }
 
     public void setGasolinaCosnumida(int gasolina){
         this.gasolinaConsumida=gasolina;
+    }
+    public int getGasolinaConsumida(){
+        return this.gasolinaConsumida;
     }
     
     
@@ -74,6 +74,16 @@ public class Vehiculo {
        double avance=motor+(int)(Math.random()*10)+llanta;
        return avance;
    }
+
+   public void setEtiqueta(String etiqueta){
+    this.etiqueta=etiqueta;
+   }
+
+   public String getEtiqueta(){
+    return this.etiqueta;
+   }
+
+ 
         
     
     

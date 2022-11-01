@@ -22,13 +22,11 @@ public class Pista {
         char[] union;
         if(this.pistas==TipoPistas.ARENA){
              union=new char[TipoPistas.ARENA.getLongitud()];
-             System.out.println("Pista de Arena");
             for (int i = 0; i < TipoPistas.ARENA.getLongitud(); i++) {
                 union[i]+=caracter;   
             }
             muestra=String.valueOf(union);
         }else if(this.pistas==TipoPistas.TIERRA){
-            System.out.println("Pista de Tierra");
             union=new char[TipoPistas.TIERRA.getLongitud()];
             for (int i = 0; i < TipoPistas.TIERRA.getLongitud(); i++) {
                 union[i]+=caracter;   
@@ -36,7 +34,6 @@ public class Pista {
             muestra=String.valueOf(union);
         }else if(this.pistas==TipoPistas.CONCRETO){
             union=new char[TipoPistas.CONCRETO.getLongitud()];
-            System.out.println("Pista de Concreto");
             for (int i = 0; i < TipoPistas.CONCRETO.getLongitud(); i++) {
                 union[i]+=caracter;   
             }
