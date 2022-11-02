@@ -6,9 +6,23 @@ import objetos.Pista;
 
 public class ManejadorPista {
     static Scanner ent = new Scanner(System.in);
-    static Pista pistas;
+    static Pista []pistas=new Pista[3];
+    public ManejadorPista(){
+        pistas[0]=new Pista(TipoPistas.TIERRA);
+        pistas[1]=new Pista(TipoPistas.ARENA);
+        pistas[2]=new Pista(TipoPistas.CONCRETO);
 
-    public static void menuPistas(){
+    }
+
+
+    public static Pista unaPista(int position){
+        Pista newPista;
+        newPista=pistas[position];
+        return newPista;
+
+    }
+
+    public  void menuPistas(){
 
         int opcion,desicion=0;
         do {
@@ -55,26 +69,11 @@ public class ManejadorPista {
         System.out.println("***************");
         System.out.println("PISTA DE TIERRA");
         System.out.println("***************");
-        pistas=new Pista(TipoPistas.TIERRA);
-        System.out.println("Longitud: "+TipoPistas.TIERRA.getLongitud()+" Coeficiente: "+TipoPistas.TIERRA.getCoeficiente());
-        System.out.println(TipoPistas.TIERRA.getColor()+pistas.getCaracter());
-
-        System.out.println("");
-        System.out.println("**************************");
-        System.out.println("\u001B[37m PISTA DE ARENA");
-        System.out.println("**************************");
-        pistas=new Pista(TipoPistas.ARENA);
-        System.out.println("Longitud: "+TipoPistas.ARENA.getLongitud()+" Coeficiente: "+TipoPistas.ARENA.getCoeficiente());
-        System.out.println(TipoPistas.ARENA.getColor()+ pistas.getCaracter());
-
-        System.out.println("");
-        System.out.println("*****************************");
-        System.out.println("\u001B[37m  PISTA DE CONCRETO");
-        System.out.println("*****************************");
-        pistas=new Pista(TipoPistas.CONCRETO);
-        System.out.println("Longitud: "+TipoPistas.CONCRETO.getLongitud()+" Coeficiente: "+TipoPistas.CONCRETO.getCoeficiente());
-        System.out.println(TipoPistas.CONCRETO.getColor()+pistas.getCaracter());
-        System.out.println("");
+        for (int i = 0; i < pistas.length; i++) {
+            System.out.println((i+1)+")\t \033[1;37m PISTA TIPO "+pistas[i].getPistas().toString());
+            System.out.println("Longitud: "+pistas[i].getPistas().getLongitud()+" Coeficiente: "+pistas[i].getPistas().getCoeficiente());
+            System.out.println(pistas[i].getPistas().getColor()+pistas[i].getCaracter());
+        }
 
 
     }

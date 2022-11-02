@@ -11,10 +11,11 @@ import objetos.Vehiculo;
 
 public class Menu {
      static Jugador jugador;
-    
+    static ManejadorPista man;
 
     static Scanner ent = new Scanner(System.in);
     public Menu(){
+      man=new ManejadorPista();
         
         terminosCondiciones();
     }
@@ -119,7 +120,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    ManejadorPista.menuPistas();
+                    man.menuPistas();
                     break;
 
                 case 5:

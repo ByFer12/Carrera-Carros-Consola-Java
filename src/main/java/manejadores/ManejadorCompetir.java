@@ -14,8 +14,17 @@ public class ManejadorCompetir {
     static Scanner ent = new Scanner(System.in);
     public ManejadorCompetir(){
 
-        elegirVehiculo();
+        elegirPista();
         
+    }
+
+    public static void elegirPista(){
+        int pistaElegir;
+        ManejadorPista.verPistas();
+        System.out.println("\n ELija el numero de la pista que desea utilizar para la carrera: ");
+        pistaElegir=ent.nextInt();
+
+
     }
     
     public static void elegirVehiculo() {
