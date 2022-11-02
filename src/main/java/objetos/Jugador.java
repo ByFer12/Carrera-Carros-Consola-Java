@@ -4,7 +4,7 @@ public class Jugador {
     private String nombre;
     private  String nickName;
     private int edad;
-    private Vehiculo[] vehiculos;
+    private static Vehiculo[] vehiculos;
 
     private final int MAX_VEHICULOS=6;
     private int gemas; 
@@ -22,20 +22,29 @@ public class Jugador {
         this.edad=edad;
         this.gemas=30;
         this.monedasOro=50;
-        this.vehiculos=new Vehiculo[MAX_VEHICULOS];
+        Jugador.vehiculos=new Vehiculo[MAX_VEHICULOS];
         
         
+    }
+
+    public static Vehiculo unVehiculo(int posicion){
+        Vehiculo vehicu;
+        vehicu=vehiculos[posicion];
+        return vehicu;
     }
 
     public void agregarVehiculo(Vehiculo vehiculo){
         
         if(this.contador<MAX_VEHICULOS){
 
-            this.vehiculos[contador++]=vehiculo;
+            Jugador.vehiculos[contador++]=vehiculo;
         }else{
             System.out.println("Ya no puedes obtener mas vehiculos");
         }
 
+    }
+    public int getContador(){
+        return this.contador;
     }
 
     public void mostrarVehiculos(){
@@ -45,8 +54,7 @@ public class Jugador {
 
         for (int i = 0; i < this.contador; i++) {
             if(vehiculos[i].getEtiqueta()!=null && vehiculos[i].getMotor()!=null && vehiculos[i].getTanqueGasolina()!=0){
-
-                System.out.println("\tVehiculo: "+vehiculos[i].getEtiqueta()+"\n");
+                System.out.println("\tVehiculo : "+vehiculos[i].getEtiqueta()+" # "+(i+1)+"\n");
                 System.out.println("Nombre: "+vehiculos[i].getNombre());
                 System.out.println("Potencia: "+vehiculos[i].getMotor());
                 System.out.println("Gasolina: "+vehiculos[i].getTanqueGasolina()+"\n");

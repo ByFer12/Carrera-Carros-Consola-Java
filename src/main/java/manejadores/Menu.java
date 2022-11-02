@@ -2,15 +2,20 @@ package manejadores;
 
 import java.util.Scanner;
 
+import enums.TipoLlanta;
+import enums.TipoMotor;
 import enums.TipoPistas;
 import objetos.Jugador;
 import objetos.Pista;
+import objetos.Vehiculo;
 
 public class Menu {
      static Jugador jugador;
+    
 
     static Scanner ent = new Scanner(System.in);
     public Menu(){
+        
         terminosCondiciones();
     }
 
@@ -35,7 +40,42 @@ public class Menu {
         System.out.print("Ingrese su Edad: ");
         edad=ent.nextInt();
         jugador=new Jugador(nombre, nickName, edad);
+        elegirVehiculo();
+    }
+    public static void elegirVehiculo(){
+        int condition=1;
+        Vehiculo v1=new Vehiculo("Truck",TipoMotor.MOTOR_BASICO,TipoLlanta.CALIDAD_MEDIA,100,"A");
+        Vehiculo v2=new Vehiculo("Bolido",TipoMotor.MOTOR_ALTO_RENDIMIENTO,TipoLlanta.CALIDAD_MEDIA,90,"B");
+        Vehiculo v3=new Vehiculo("Macuin",TipoMotor.MOTOR_MEDIO,TipoLlanta.CALIDAD_MEDIA,100,"C");
+        //
+        //jugador.agregarVehiculo(v1);
+        do {
+            System.out.println("\tVEHICULOS:");
+            System.out.println("1 ------ Vehiculo: "+v1.getEtiqueta()+"\n \tPotencia: "+v1.getMotor()+" Gasolina: "+v1.getTanqueGasolina()+" Nombre: "+v1.getNombre());
+            System.out.println("2 ------ Vehiculo: "+v2.getEtiqueta()+"\n \tPotencia: "+v2.getMotor()+" Gasolina: "+v2.getTanqueGasolina()+" Nombre: "+v2.getNombre());
+            System.out.println("3 ------ Vehiculo: "+v3.getEtiqueta()+"\n \tPotencia: "+v3.getMotor()+" Gasolina: "+v3.getTanqueGasolina()+" Nombre: "+v3.getNombre());
+            System.out.println("Elija uno de los 3 vehiculos disponibles.");
+            condition=ent.nextInt();
+            switch(condition){
+                case 1:
+                jugador.agregarVehiculo(v1);
+                condition=0;
+                break;
 
+                case 2:
+                jugador.agregarVehiculo(v2);
+                condition=0;
+                break;
+
+                case 3:
+                jugador.agregarVehiculo(v3);
+                condition=0;
+                break;
+                default:
+                System.out.println("El numero que usted eligio no es valido...");
+            }
+            
+        } while (condition!=0);
         menuJuego();
     }
     public static void mostrarDatos(){
@@ -67,7 +107,7 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Aqui va todo lo de competencia");
+                    ManejadorCompetir m = new ManejadorCompetir();
                     break;
                 
                 case 2:

@@ -1,29 +1,29 @@
 package manejadores;
 
+import java.util.Scanner;
+
 import objetos.Jugador;
 import objetos.Pista;
 import objetos.Vehiculo;
 
 public class ManejadorCompetir {
-    private Vehiculo [] vehiculoJugador=new Vehiculo[6];
-    private Vehiculo [] vehiculoRival= new Vehiculo[6];
     private Pista pistas;
-    private Jugador jugador;
 
+    private static Vehiculo vehiculoJugar;
+    private Vehiculo enemigo;
+    static Scanner ent = new Scanner(System.in);
     public ManejadorCompetir(){
-        
 
+        elegirVehiculo();
         
     }
-
-    public static void elegirPista() {
-        int desicion=0;
-        
-        do {
-            System.out.println("1---------Elegir Pista");
-            System.out.println("2---------Elegir");
-        } while (desicion!=1);
-        
+    
+    public static void elegirVehiculo() {
+        int opcion;
+        Menu.jugador.mostrarVehiculos();
+        System.out.println("Elige el numero del vehiculo que deseas usar para la carrera: ");
+        opcion=ent.nextInt();
+        vehiculoJugar=Jugador.unVehiculo(opcion-1);
     }
 
 }
