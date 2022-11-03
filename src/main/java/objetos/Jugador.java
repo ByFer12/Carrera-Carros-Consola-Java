@@ -54,7 +54,7 @@ public class Jugador {
 
         for (int i = 0; i < this.contador; i++) {
             if(vehiculos[i].getEtiqueta()!=null && vehiculos[i].getMotor()!=null && vehiculos[i].getTanqueGasolina()!=0){
-                System.out.println("\tVehiculo : "+vehiculos[i].getEtiqueta()+" # "+(i+1)+"\n");
+                System.out.println((i+1)+") -------- Vehiculo : "+vehiculos[i].getEtiqueta()+"\n");
                 System.out.println("Nombre: "+vehiculos[i].getNombre());
                 System.out.println("Potencia: "+vehiculos[i].getMotor());
                 System.out.println("Gasolina: "+vehiculos[i].getTanqueGasolina()+"\n");

@@ -45,7 +45,7 @@ public class Menu {
     }
     public static void elegirVehiculo(){
         int condition=1;
-        Vehiculo v1=new Vehiculo("Truck",TipoMotor.MOTOR_BASICO,TipoLlanta.CALIDAD_MEDIA,100,"A");
+        Vehiculo v1=new Vehiculo("Truck",TipoMotor.MOTOR_BASICO,TipoLlanta.CALIDAD_MEDIA,70,"A");
         Vehiculo v2=new Vehiculo("Bolido",TipoMotor.MOTOR_ALTO_RENDIMIENTO,TipoLlanta.CALIDAD_MEDIA,90,"B");
         Vehiculo v3=new Vehiculo("Macuin",TipoMotor.MOTOR_MEDIO,TipoLlanta.CALIDAD_MEDIA,100,"C");
         //

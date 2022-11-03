@@ -2,12 +2,14 @@ package manejadores;
 
 import java.util.Scanner;
 
+import AyudaExcepciones.Helpers;
+import excepciones.GasolinaVehiculoCaminoE;
 import objetos.Jugador;
 import objetos.Pista;
 import objetos.Vehiculo;
 
 public class ManejadorCompetir {
-    private Pista pistas;
+    private static Pista pistaElegida;
 
     private static Vehiculo vehiculoJugar;
     private Vehiculo enemigo;
@@ -23,8 +25,9 @@ public class ManejadorCompetir {
         ManejadorPista.verPistas();
         System.out.println("\n ELija el numero de la pista que desea utilizar para la carrera: ");
         pistaElegir=ent.nextInt();
+        pistaElegida=ManejadorPista.unaPista(pistaElegir);
 
-
+        elegirVehiculo();
     }
     
     public static void elegirVehiculo() {
@@ -32,7 +35,17 @@ public class ManejadorCompetir {
         Menu.jugador.mostrarVehiculos();
         System.out.println("Elige el numero del vehiculo que deseas usar para la carrera: ");
         opcion=ent.nextInt();
-        vehiculoJugar=Jugador.unVehiculo(opcion-1);
+        Helpers help=new Helpers();
+        try {
+         
+          vehiculoJugar=  help.validarVehiculo(Jugador.unVehiculo(opcion-1),pistaElegida);
+          System.out.println("Elegido correctamente...\n");
+          System.out.println("Nombre del vehiculo: "+vehiculoJugar.getNombre());
+
+        } catch (GasolinaVehiculoCaminoE e) {
+           System.out.println("El jugador no posee ningun vehiculo disponible debido a que: "+e.getMessage());
+           
+        }
     }
 
 }
