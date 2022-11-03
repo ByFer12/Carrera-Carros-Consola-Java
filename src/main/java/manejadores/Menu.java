@@ -12,10 +12,12 @@ import objetos.Vehiculo;
 public class Menu {
      static Jugador jugador;
     static ManejadorPista man;
+    private ManejadorRival rival;
 
     static Scanner ent = new Scanner(System.in);
     public Menu(){
       man=new ManejadorPista();
+      rival=new ManejadorRival();
         
         terminosCondiciones();
     }

@@ -5,7 +5,7 @@ import enums.TipoMotor;
 import objetos.Vehiculo;
 
 public class ManejadorRival {
-   static Vehiculo [] vehiculoRival=new Vehiculo[6];
+   private static Vehiculo [] vehiculoRival=new Vehiculo[6];
     
 
     public ManejadorRival(){
