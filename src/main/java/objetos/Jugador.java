@@ -27,7 +27,7 @@ public class Jugador {
         
     }
 
-    public static Vehiculo unVehiculo(int posicion){
+    public Vehiculo unVehiculo(int posicion){
         Vehiculo vehicu;
         vehicu=vehiculos[posicion];
         return vehicu;
@@ -53,12 +53,14 @@ public class Jugador {
         System.out.println("\t***************************");
 
         for (int i = 0; i < this.contador; i++) {
-            if(vehiculos[i].getEtiqueta()!=null && vehiculos[i].getMotor()!=null && vehiculos[i].getTanqueGasolina()!=0){
+            if(vehiculos[i].getEtiqueta()!=' ' && vehiculos[i].getMotor()!=null && vehiculos[i].getTanqueGasolina()!=0){
                 System.out.println((i+1)+") -------- Vehiculo : "+vehiculos[i].getEtiqueta()+"\n");
                 System.out.println("Nombre: "+vehiculos[i].getNombre());
                 System.out.println("Potencia: "+vehiculos[i].getMotor());
                 System.out.println("Gasolina: "+vehiculos[i].getTanqueGasolina()+"\n");
-                System.out.println("");
+                System.out.println("Vehiculo: "+vehiculos[i].getEtiqueta()+"\n");
+                
+                System.out.println("\033[1;37m");
             }
         }
     }

@@ -7,21 +7,19 @@ import manejadores.Menu;
 
 public class Vehiculo {
     private String nombre;
-    private  TipoMotor motor;
+    private TipoMotor motor;
     private TipoLlanta llanta;
     private int tanqueGasolina;
     private ColorVehiculo color;
-    private String etiqueta;
+    private char etiqueta;
     private int gasolinaConsumida;
-    
-   
-    
-    public Vehiculo(String nombre, TipoMotor motor, TipoLlanta llanta, int tanqueGasolina, String etiqueta) {
+
+    public Vehiculo(String nombre, TipoMotor motor, TipoLlanta llanta, int tanqueGasolina, char etiqueta) {
         this.nombre = nombre;
         this.motor = motor;
         this.llanta = llanta;
         this.tanqueGasolina = tanqueGasolina;
-        this.etiqueta=etiqueta;
+        this.etiqueta = etiqueta;
 
     }
 
@@ -53,41 +51,40 @@ public class Vehiculo {
         return tanqueGasolina;
     }
 
-    public void setTanqueGasolina(int tanqueGasolina) {
-        this.tanqueGasolina = tanqueGasolina;
+    public void llenarTanqueGasolina(int llenar) {
+        this.tanqueGasolina += llenar;
+    }
+    public void vaciarTanqueGasolina(int vaciar) {
+        if (this.tanqueGasolina<=0){
+            this.tanqueGasolina=0;
+        }
+        this.tanqueGasolina -= vaciar;
     }
 
-    public ColorVehiculo getColor(){
+    public ColorVehiculo getColor() {
         return this.color;
     }
 
-    public void setGasolinaCosnumida(int gasolina){
-        this.gasolinaConsumida=gasolina;
+    public void setGasolinaCosnumida(int gasolina) {
+        this.gasolinaConsumida = gasolina;
     }
-    public int getGasolinaConsumida(){
+
+    public int getGasolinaConsumida() {
         return this.gasolinaConsumida;
     }
-    
-    
-   public double avanceVehiculo(int motor ,int llanta){
-       
-       double avance=motor+(int)(Math.random()*10)+llanta;
-       return avance;
-   }
 
-   public void setEtiqueta(String etiqueta){
-    this.etiqueta=etiqueta;
-   }
+    public int avanceVehiculo(int motor, int llanta) {
 
-   public String getEtiqueta(){
-    return this.etiqueta;
-   }
+        int avance = motor + (int) (Math.random() * 10) + llanta;
+        return avance;
+    }
 
- 
-        
-    
-    
-    
-   
-    
+    public void setEtiqueta(char etiqueta) {
+        this.etiqueta = etiqueta;
+    }
+
+    public char getEtiqueta() {
+        return this.etiqueta;
+    }
+
 }

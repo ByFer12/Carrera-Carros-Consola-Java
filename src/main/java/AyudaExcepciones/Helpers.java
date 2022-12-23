@@ -1,12 +1,15 @@
 package AyudaExcepciones;
 
+import enums.TipoMotor;
 import excepciones.GasolinaVehiculoCaminoE;
 import excepciones.MaximoRival;
 import excepciones.MinimoRival;
+import excepciones.MismoMotor;
 import objetos.Pista;
 import objetos.Vehiculo;
 
 public class Helpers {
+   static Vehiculo vehiculo;
     
     public Helpers(){
 
@@ -40,5 +43,32 @@ public class Helpers {
         }
     return num;
 
+    }
+
+
+    public boolean setMotor1(Vehiculo vehiculo)throws MismoMotor{
+
+        if(vehiculo.getMotor()==TipoMotor.MOTOR_BASICO){
+        throw new MismoMotor("Ya posee Motor Basico, elige otro tipo");
+          
+        }
+          
+        return true;
+    }
+    public boolean setMotor2(Vehiculo vehiculo)throws MismoMotor{
+        if(vehiculo.getMotor()==TipoMotor.MOTOR_MEDIO){
+            throw new MismoMotor("Ya posee Motor de tipo intermedio");
+          
+        }
+          
+        return true;
+    }
+    public boolean setMotor3(Vehiculo vehiculo)throws MismoMotor{
+
+        if(vehiculo.getMotor()==TipoMotor.MOTOR_ALTO_RENDIMIENTO){
+            throw new MismoMotor("Ya posee Motor de Alto rendimiento");
+        }
+          
+        return true;
     }
 }
